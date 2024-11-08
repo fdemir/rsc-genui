@@ -17,19 +17,26 @@ export default function Home() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [messagesContainerRef, messagesEndRef] =
     useScrollToBottom<HTMLDivElement>();
-
   const suggestedActions = [
-    { title: "View all", label: "my cameras", action: "View all my cameras" },
-    { title: "Show me", label: "my smart home hub", action: "Show me my smart home hub" },
     {
-      title: "How much",
-      label: "electricity have I used this month?",
-      action: "Show electricity usage",
+      title: "Show me",
+      label: "bitcoin performance for 2 days",
+      action: "show me bitcoin performance for 2 days",
     },
     {
-      title: "How much",
-      label: "water have I used this month?",
-      action: "Show water usage",
+      title: "Check",
+      label: "ethereum price trend this week",
+      action: "check ethereum price trend for the last 7 days",
+    },
+    {
+      title: "Compare",
+      label: "bitcoin and ethereum prices",
+      action: "compare bitcoin and ethereum price charts",
+    },
+    {
+      title: "Analyze",
+      label: "top gainers in last 24 hours",
+      action: "show me the top gaining cryptocurrencies in the last 24 hours",
     },
   ];
 
@@ -44,26 +51,14 @@ export default function Home() {
             <motion.div className="h-[350px] px-4 w-full md:w-[500px] md:px-0 pt-20">
               <div className="border rounded-lg p-6 flex flex-col gap-4 text-zinc-500 text-sm dark:text-zinc-400 dark:border-zinc-700">
                 <p className="flex flex-row justify-center gap-4 items-center text-zinc-900 dark:text-zinc-50">
-                  <VercelIcon size={16} />
-                  <span>+</span>
                   <MasonryIcon />
                 </p>
+                <p>This is a demo of a trading research assistant.</p>
+
                 <p>
-                  The streamUI function allows you to stream React Server
-                  Components along with your language model generations to
-                  integrate dynamic user interfaces into your application.
-                </p>
-                <p>
-                  {" "}
-                  Learn more about the{" "}
-                  <Link
-                    className="text-blue-500 dark:text-blue-400"
-                    href="https://sdk.vercel.ai/docs/ai-sdk-rsc/streaming-react-components"
-                    target="_blank"
-                  >
-                    streamUI{" "}
-                  </Link>
-                  hook from Vercel AI SDK.
+                  It uses generative ui to stream react components along with
+                  the language model generations to integrate dynamic user
+                  interfaces into the application.
                 </p>
               </div>
             </motion.div>
@@ -93,7 +88,7 @@ export default function Home() {
                       />,
                     ]);
                     const response: ReactNode = await sendMessage(
-                      action.action,
+                      action.action
                     );
                     setMessages((messages) => [...messages, response]);
                   }}
